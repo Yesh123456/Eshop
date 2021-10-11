@@ -1,0 +1,36 @@
+
+This Project is all about shopping where we have functionality like Cart,Product,Single_Product,CustomAdminUser,Static_Templates
+
+1. Firstly done with CustomAdminUser where login is with email only.
+
+2. Static Files are then loaded on the templates by creating templates
+
+3. Created Product for the user by loading static templates
+
+4. Created Single_Page_Product by using static templates
+
+5. Created Cart Page (One of the difficult to handle ) by using static templates.
+
+6. Problem in Adding items in cart with total quantity price and similar to counter on navbar
+
+7. Problem if item out of stock still we can add so we need to always redirect to product detail page always
+
+8. Paginator problem for category was fixed same as for product in store.views and also added paginator functionality(?page=)
+
+9. Search function same as (?keyword=) problem beacause we pass category slug (/store/search/) and then we fixed with creating new urls(category/slug....) to (search/category/slug....)
+
+10. Search function was implemented with no result found then no otherwise products will be seen same as of cart if found then show otherwise no.
+
+11. Product variations is next step which is also one of the difficult to handle so only color and size is only variations but we need to add same in cart.
+
+12. Product variations created using new model and store product as foreign key and store values as tuple form as ('color','color') and make changes in admin panel as using filter property.
+
+13. Product variations will be working if we seperatley make pass values to them as by creating new variation manager for different variations.
+
+14. using POST method to get sizes and colors and stuck to get variation object in terminal instead of color or size but we solve with storing values from post as key value pair and then add in variation object and same to the new list.
+
+15. Now adding variation as ManytoMany field in cartitem because it can have many values as for color and size with different variations. and also made list_display for cart and cart_item.
+
+16. Added variations with item HArkon but we need to remove added to cart button to add item with different variations but porblem is we can add different variations in same variations that we choosen recently it should remove previous variations for that.
+
+17. Problem is we need to save the variations in cart with different variation.and after that we need to check that same variations does not repeat it should increase the quantity of that variation.We need existing and current variation and item_id. We did it buy checking the existing variations list and check that index value with new one.But if new item with same variations we will redirect to else loop.
