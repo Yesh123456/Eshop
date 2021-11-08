@@ -34,3 +34,25 @@ This Project is all about shopping where we have functionality like Cart,Product
 16. Added variations with item HArkon but we need to remove added to cart button to add item with different variations but porblem is we can add different variations in same variations that we choosen recently it should remove previous variations for that.
 
 17. Problem is we need to save the variations in cart with different variation.and after that we need to check that same variations does not repeat it should increase the quantity of that variation.We need existing and current variation and item_id. We did it buy checking the existing variations list and check that index value with new one.But if new item with same variations we will redirect to else loop.
+
+18. Solved the problem for addding quantity and removing quantity in cart.Started with Login and Registration part where we need to change some fields using Forms and sending to context on html page and edited according to our requirements and know about the django forms with init method for attributes like placeholder and classes.
+
+19. Done creating signup user with csrf token and registered successfully with random generated username
+
+
+***************************************************************
+NEWLY CREATED ADMIN USER are yesh@google.com yesh
+
+OLD CREATED ADMIN USER is yj@google.com yeshj123
+***************************************************************
+
+20. Worked with Django messages which basically we can create using alerts on login and signup page done with only activate user only.newly register user cannot login.
+Login,Logout,Register working
+
+21.Working with email verfication were we will be sending mail where it has current_site,mail messages,mail subject,etc.we will firstly encode user.pk(primarykey)and from user will be decoding it.Sending mails through toekn generator and sending it to user via EmailMessage module.Need to create account_verification template in which sending url using domain and url activate. Decode the uid and change the status as active after sending email to user and user is verified with email.Also removed registration successfull message and view container with info.
+[EMAIL VERFICATION WORKING...]
+
+22.created and fixed the dashboard with login and logout functionality.Also created and fixed reset password email similar to verification with reset password page to reset it.
+
+
+
