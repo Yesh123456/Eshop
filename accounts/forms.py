@@ -7,7 +7,7 @@ class RegistrationForm(forms.ModelForm):
 
 	class Meta:
 		model = Account
-		fields = ['first_name','last_name','email','password']
+		fields = ['first_name','last_name','email','password','phone_number']
 
 	def __init__(self,*args,**kwargs):
 		super(RegistrationForm,self).__init__(*args,**kwargs)
@@ -16,6 +16,9 @@ class RegistrationForm(forms.ModelForm):
 		self.fields['last_name'].widget.attrs['placeholder'] = 'Enter Last Name'
 
 		self.fields['email'].widget.attrs['placeholder'] = 'Enter Email Address'
+
+		self.fields['phone_number'].widget.attrs['placeholder'] = 'Enter Phone Number without +91'
+
 		for field in self.fields:
 			self.fields[field].widget.attrs['class']='form-control'
 

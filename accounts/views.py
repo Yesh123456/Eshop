@@ -12,6 +12,9 @@ from django.utils.encoding import force_bytes
 from django.core.mail.message import EmailMessage
 from django.contrib.auth.tokens import default_token_generator
 from django.http.response import HttpResponse
+from cart.views import _cart_id
+from cart.models import CartItem,Cart
+import requests
 
 def register(request):
 	if request.method == "POST":
@@ -20,8 +23,8 @@ def register(request):
 		if form.is_valid():
 			# print(form)
 			first_name = form.cleaned_data['first_name']
-			print(first_name)
 			last_name = form.cleaned_data['last_name']
+			phone_number = form.cleaned_data['phone_number']
 			email = form.cleaned_data['email']
 			password = form.cleaned_data['password']
 			#username = email.split("@")[0]
@@ -56,8 +59,51 @@ def login(request):
 
 		user = auth.authenticate(email=email,password=password)
 		if user is not None:
+			try:
+				cart = Cart.objects.get(cart_id=_cart_id(request))
+				is_cart_item_exsist = CartItem.objects.filter(cart=cart).exists()
+				if is_cart_item_exsist:
+					cart_item = CartItem.objects.filter(cart=cart)
+					product_variation=[]
+
+					for item in cart_item:
+						variation = item.variations.all()
+						product_variation.append(list(variation))
+
+					cart_item = CartItem.objects.filter(user=user)
+					exsisting_variation=[]
+					id=[]
+					for item in cart_item:
+						ex_variation = item.variations.all()
+						exsisting_variation.append(list(ex_variation))
+						id.append(item.id)
+
+					for i in product_variation:
+						if i in exsisting_variation:
+							index=exsisting_variation.index(i)
+							item_id=id[index]
+							item = CartItem.objects.get(id=item_id)
+							item.quantity+=1
+							item.user=user
+							item.save()
+						else:
+							cart_item = CartItem.objects.filter(cart=cart)
+							for item in cart_item:
+								item.user=user
+								item.save()
+			except:
+				pass
 			auth.login(request,user)
-			return redirect('dashboard')
+			url=request.META.get('HTTP_REFERER')
+			try:
+				query = requests.utils.urlparse(url).query
+				print(query)
+				params = dict(x.split('=') for x in query.split('&'))
+				if 'next' in params:
+					nextPage = params['next']
+					return redirect(nextPage)
+			except:
+				return redirect('dashboard')
 		else:
 			messages.error(request,'Invalid credentials')
 			return redirect('login')

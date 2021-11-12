@@ -54,5 +54,8 @@ Login,Logout,Register working
 
 22.created and fixed the dashboard with login and logout functionality.Also created and fixed reset password email similar to verification with reset password page to reset it.
 
+23.created checkout page will billing info and now problem is if we add items to cart and after that if we signin it will reset the cart to 0 which in that case should isolate or carry forward items after login.What we did is while login we use to authenticate password and all we also se if there are any cart items in that session holding if yes then we created user varaible in cart item and also view which user is holding which cart item in admin panel.
+
+24.after login cart logo is now working having the same view of non users but we need grouping before and after login items of similar variations.That to completed with minus and removing items from cart for login users.
 
 
