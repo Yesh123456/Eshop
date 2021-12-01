@@ -1,0 +1,9 @@
+{% autoescape off %}
+
+Hi {{user.full_name}},
+
+Your Order is confirmed and your Order Number is {{order.order_number}}.
+And Your Products are {{product.product_name}}
+
+If you are not the person to create, ignore this mail.
+{% endautoescape %}

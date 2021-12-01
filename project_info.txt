@@ -58,4 +58,10 @@ Login,Logout,Register working
 
 24.after login cart logo is now working having the same view of non users but we need grouping before and after login items of similar variations.That to completed with minus and removing items from cart for login users.
 
+25.Worked on billing address where we created new order app for that and storing billing information and now setting up payment gateway, for that we need to create another url as payment for views.Payment gateway is included for our project paypal is only gatweway is option set we can also add many more try to do this with google pay or any other gateway.
+
+26.Added RazorPay Gateway to our payment gateway.Also added order successfull invoice on successfull completeion of payment the user is redirected to the invoice page where we have fetch order number,payment id, name,address,state,phone number,email,product details in cart etc.
+
+27.
+
 

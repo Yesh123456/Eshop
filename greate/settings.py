@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'accounts',
     'store',
     'cart',
+    'orders',
 ]
 
 MIDDLEWARE = [
@@ -153,3 +154,6 @@ EMAIL_PORT=587
 EMAIL_HOST_USER='isco30427@gmail.com'
 EMAIL_HOST_PASSWORD='yeshjadav7'
 EMAIL_USE_TLS=True
+
+RAZOR_KEY_ID = 'rzp_test_mMj1wj55Jk4nen'
+RAZOR_KEY_SECRET = 'IOyr9ZkAYE8XnWhGLJvd7W1O'
