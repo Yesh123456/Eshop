@@ -11,11 +11,19 @@
 	<div class="row no-gutters">
 		<aside class="col-md-6">
 			<article class="gallery-wrap"> 
-				<div class="img-big-wrap">
-	   				<a href="#"><img src="{{ single_product.product_image.url }}"></a>
+				<div class="img-big-wrap mainImage">
+	   				<center><img src="{{ single_product.product_image.url }}"></center>
 				</div> <!-- img-big-wrap.// -->
 	
 			</article> <!-- gallery-wrap .end// -->
+			<ul class="thumb">
+				<li>
+					<a href="{{ single_product.product_image.url }}" target="mainImage"><img src="{{ single_product.product_image.url }}" alt="Harkon DarkBlue"></a>
+					{% for img in product_gallery %}
+					<a href="{{img.image.url}}" target="mainImage"><img src="{{img.image.url}}" alt="Harkon DarkBlue"></a>
+					{% endfor %}
+				</li>
+			</ul>
 		</aside>
 		<main class="col-md-6 border-left">
 

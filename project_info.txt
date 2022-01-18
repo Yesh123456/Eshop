@@ -62,8 +62,10 @@ Login,Logout,Register working
 
 26.Added RazorPay Gateway to our payment gateway.Also added order successfull invoice on successfull completeion of payment the user is redirected to the invoice page where we have fetch order number,payment id, name,address,state,phone number,email,product details in cart etc.
 
-27.Created new Model ReviewRating where review and rating for the user is been added also added stars with custom css for user to update the stars and make the user view the reviews of the ratings and stars.Also now making average stars rating for the Harkon product and in future for other products as well.
+27.Created new Model ReviewRating where review and rating for the user is been added also added stars with custom css for user to update the stars and make the user view the reviews of the ratings and stars.Also now made average stars rating for the Harkon product and in future for other products as well.
 
-28.
+28.Now working on User dashboard, orders_history,edit_profile, change password. Working on User dashboard where he will be viewing his email and phone after this working on orders history where he can view orders.
+
+29.Completed dashboard for the user where he can view his orders,change password and edit profile for the address or any information updation.Now working on product images,
 
 
