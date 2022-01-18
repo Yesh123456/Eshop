@@ -20,12 +20,14 @@ from django.conf.urls.static import static
 from django.conf import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('adminyesh/', admin.site.urls),
     path('',views.index,name='index'),
     path('store/',include('store.urls')),
     path('cart/',include('cart.urls')),
     path('accounts/',include('accounts.urls')),
-    path('orders/',include('orders.urls')),
+    path('orders/',include('orders.urls')),    
+    path('admin/', include('admin_honeypot.urls',namespace='admin_honeypot')),
+
 ]
 
 if settings.DEBUG:

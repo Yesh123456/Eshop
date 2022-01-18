@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'store',
     'cart',
     'orders',
+    'admin_honeypot',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django_session_timeout.middleware.SessionTimeoutMiddleware',
 ]
 
 ROOT_URLCONF = 'greate.urls'
@@ -147,6 +149,9 @@ from django.contrib.messages import constants as messages
 MESSAGE_TAGS={
     messages.ERROR:'danger',
 }
+SESSION_EXPIRE_SECONDS = 1800
+SESSION_EXPIRE_AFTER_LAST_ACTIVITY = True
+SESSION_TIMEOUT_REDIRECT= 'accounts/login'
 
 #SMTP 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
